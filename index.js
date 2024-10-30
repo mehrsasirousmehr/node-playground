@@ -1,5 +1,5 @@
-console.log('Hello mehrsa');
+console.log('-------------------- index.js --------------------')
 
-let x = 0;
+import {numbers, double} from './array/map.js'
 
-console.log(++x)
+console.log(double(numbers));
