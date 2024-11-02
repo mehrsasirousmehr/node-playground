@@ -11,7 +11,10 @@ function double(value) {
 }
 
 const doubledNumbers = double(numbers);
-
 console.log(doubledNumbers);
+
+const doubleNumber2 = numbers.map(num => num * 2)
+console.log(doubleNumber2);
+
 
 export {double, numbers}
