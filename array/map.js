@@ -1,5 +1,5 @@
 const numbers = [1,2,3];
-console.log(numbers)
+// console.log(numbers)
 
 function double(value) {
     if (!Array.isArray(value)) return;
@@ -11,10 +11,9 @@ function double(value) {
 }
 
 const doubledNumbers = double(numbers);
-console.log(doubledNumbers);
+// console.log(doubledNumbers);
 
 const doubleNumber2 = numbers.map(num => num * 2)
-console.log(doubleNumber2);
-
+// console.log(doubleNumber2);
 
 export {double, numbers}
