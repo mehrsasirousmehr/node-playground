@@ -7,7 +7,6 @@ import {customSome} from "./array/customSome.js";
 
 console.log('-------------------- index.js --------------------')
 
-
 Array.prototype.customMap = customMap;
 Array.prototype.customFind = customFind;
 Array.prototype.customFilter = customFilter;
@@ -15,20 +14,74 @@ Array.prototype.customFindIndex = customFindIndex;
 Array.prototype.customForeach = customForeach;
 Array.prototype.customSome = customSome;
 
-// const numbers = [5, 12, 8, 145, 4]
-// console.log(numbers.customMap(n => n * 2))
+const arrayData = [
+    {
+        name: 'mehrsa',
+        age: 20,
+        chapter: 'front'
+    },
+    {
+        name: 'sophia',
+        age: 22,
+        chapter: 'front'
+    },
+    {
+        name: 'zohre',
+        age: 23,
+        chapter: 'back'
+    },
+    {
+        name: 'arian',
+        age: 30,
+        chapter: 'back'
+    },
+];
+const objectData = {
+    mehrsa: {
+        age: 20,
+        chapter: 'front'
+    },
+    sophia: {
+        age: 22,
+        chapter: 'front'
+    },
+    zohre: {
+        age: 23,
+        chapter: 'back'
+    },
+    arian: {
+        age: 30,
+        chapter: 'back'
+    },
+}
 
-// const numbers = [12,4,55,66]
-// console.log(numbers.customFind(n => n > 20))
+function convertPersonArrayToObject(array) {
+    const newObject = {};
+    array.forEach((item, index) => {
+        const {name, ...rest} = item;
+        newObject[item.name] = rest;
+    })
+    return newObject;
+}
 
-// const number2 = [18, 22, 25, 18, 35, 47, 18]
-// console.log(number2.customFilter(n => n === 18))
+const objectFromArray = convertPersonArrayToObject(arrayData)
 
-// const numbers3 = [12,4,55,66]
-// console.log(numbers3.customFindIndex(n => n > 50))
+// console.log(objectFromArray);
 
-// const numbers4 = [5, 10, 15]
-// numbers4.customForeach(n => console.log(n * 5));
 
-const numbers5 = [12, 14, 15, 36]
-console.log(numbers5.customSome(n => n > 30))
+const objectFromArrayReduce = arrayData.reduce((previousValue, currentValue) => {
+    // console.log('previousValue: ',previousValue)
+    // console.log('currentValue:  ',currentValue)
+    // console.log('currentIndex:  ',currentIndex)
+    // console.log('array:         ',array)
+    console.log('-----------------------------------------')
+    const {name,...rest} = currentValue;
+    previousValue[currentValue.name] = rest;
+    return previousValue;
+},{})
+
+const objectFromArrayReduceAlt = ['m','e','h','r','s','a'].reduce((acc, curr) => {
+    return acc.concat(curr);
+},'')
+
+console.log(objectFromArrayReduceAlt)
